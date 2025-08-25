@@ -1,4 +1,4 @@
-# Node/npm stuff (if using any build tools)
+# Ignore node/npm build folders
 node_modules/
 dist/
 build/
@@ -8,9 +8,7 @@ build/
 Thumbs.db
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log
 
 # Editor files
 *.swp
@@ -18,5 +16,9 @@ yarn-error.log*
 *.idea/
 .vscode/
 
-# Optional: Ignore temporary files
-*.tmp
+# Ignore large files inside any folder
+**/*.mp4
+**/*.mov
+**/*.avi
+**/*.zip
+**/*.tar.gz
