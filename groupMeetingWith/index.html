@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Motivation — Hamiltonian Simulation with Trapped Ions</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 0; background: #0f172a; color: #e6eef8; }
+    .container { max-width: 980px; margin: 48px auto; padding: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 12px; box-shadow: 0 8px 30px rgba(2,6,23,0.6); }
+    h1 { margin: 0 0 12px 0; font-size: 28px; color: #fff; }
+    .lead { color: #bcd0ea; margin-bottom: 18px; }
+    .columns { display: flex; gap: 28px; flex-wrap: wrap; }
+    .left { flex: 1 1 56%; min-width: 300px; }
+    .right { flex: 1 1 36%; min-width: 240px; background: rgba(255,255,255,0.02); padding: 16px; border-radius: 8px; }
+    ul { margin: 8px 0 16px 20px; color: #dce9ff; }
+    .small { font-size: 13px; color: #9fb5d6; }
+    .ref-list { margin-top: 16px; font-size: 13px; color: #9fb5d6; line-height: 1.5; }
+    a { color: #9ad1ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .callout { margin-top: 12px; padding: 10px; border-left: 4px solid #3b82f6; background: rgba(59,130,246,0.03); border-radius: 4px; color: #dbeafe; }
+    .footer { margin-top: 18px; font-size: 13px; color: #8faac8; }
+    @media (max-width:720px){ .columns{flex-direction:column} .right{order:2} }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <h1>Motivation — Why quantum computation for Hamiltonian simulation?</h1>
+    <p class="lead">Quantum computers can efficiently emulate quantum dynamics that are intractable for classical machines. Below: the problem, the opportunity, and why trapped ions are a strong platform for Hamiltonian simulation.</p>
+
+    <div class="columns">
+      <div class="left">
+        <h2 style="margin-bottom:6px;">The problem</h2>
+        <ul>
+          <li><strong>Exponential state spaces.</strong> Exact classical simulation of many-body quantum systems grows exponentially (Hilbert space ∝ 2ⁿ) so brute-force methods fail for modest system sizes.</li>
+          <li><strong>Approximation limits.</strong> Classical approximations (DFT, CC, tensor networks) break down for strongly correlated dynamics and some real-time processes.</li>
+        </ul>
+
+        <h2 style="margin-bottom:6px;">The opportunity</h2>
+        <ul>
+          <li><strong>Quantum-native evolution.</strong> Quantum devices implement unitary evolution directly → algorithms such as Trotterization, variational eigensolvers, and qubitization let us simulate time dynamics and spectral properties more efficiently than classical brute force. <!-- cite: Lloyd, Aspuru-Guzik, Low & Chuang --></li>
+          <li><strong>High-impact applications.</strong> Quantum chemistry (ground states, reaction paths), materials (strong correlations, topological phases), nuclear & high-energy lattice models, and non-equilibrium dynamics.</li>
+        </ul>
+
+        <h2 style="margin-bottom:6px;">Why trapped ions?</h2>
+        <ul>
+          <li><strong>High coherence & fidelity:</strong> long coherence times and demonstrated high-fidelity gates make ions excellent for both digital and analog simulations.</li>
+          <li><strong>Tunable interactions:</strong> spin–spin couplings mediated by motional modes allow flexible Hamiltonian engineering (useful for analog and digital simulation protocols).</li>
+          <li><strong>Programmability:</strong> lasers/AWGs and pulse-level control let you implement Trotter steps or continuous Hamiltonian drives with precise calibration.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>One-sentence pitch you can read:</strong>  
+          “Classical methods fail for certain strongly correlated and time-dependent quantum problems because of exponential scaling; quantum computers—particularly trapped-ion systems with long coherence and tunable interactions—can directly emulate these Hamiltonians and open a path to solving chemistry, materials, and physics problems beyond classical reach.” 
+        </div>
+
+        <p class="footer">Speaker notes: keep this slide short (3–5 bullets). Use the right panel graphic to visually show 'classical → quantum' advantage and annotate that your work sits at the interface of algorithm design and pulse/hardware control.</p>
+      </div>
+
+      <aside class="right" aria-label="Quick figure and refs">
+        <div style="text-align:center; margin-bottom:12px;">
+          <svg width="160" height="100" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="8" width="68" height="36" rx="6" fill="#0b1220" stroke="#334155"/>
+            <text x="40" y="30" fill="#9ad1ff" font-size="10" text-anchor="middle">Classical</text>
+            <text x="40" y="42" fill="#cbdffd" font-size="10" text-anchor="middle">exponential cost</text>
+            <rect x="86" y="8" width="68" height="36" rx="6" fill="#071026" stroke="#0ea5e9"/>
+            <text x="120" y="30" fill="#9ad1ff" font-size="10" text-anchor="middle">Quantum</text>
+            <text x="120" y="42" fill="#cbdffd" font-size="10" text-anchor="middle">direct unitary evolution</text>
+            <line x1="74" y1="26" x2="86" y2="26" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <circle cx="92" cy="68" r="18" fill="#071026" stroke="#60a5fa"/>
+            <text x="92" y="70" fill="#9ad1ff" font-size="10" text-anchor="middle">Trapped</text>
+            <text x="92" y="82" fill="#cbdffd" font-size="10" text-anchor="middle">ions (this work)</text>
+          </svg>
+        </div>
+
+        <div class="small"><strong>Key references</strong></div>
+        <div class="ref-list">
+          <div><a href="https://link.springer.com/article/10.1007/BF02650179" target="_blank" rel="noopener">R. P. Feynman, 1982</a> — origin of the quantum-simulation idea.</div>
+          <div><a href="https://www.science.org/doi/10.1126/science.273.5278.1073" target="_blank" rel="noopener">S. Lloyd, 1996</a> — proof that local Hamiltonians can be simulated efficiently on quantum computers.</div>
+          <div><a href="https://www.science.org/doi/10.1126/science.1113479" target="_blank" rel="noopener">A. Aspuru-Guzik et al., 2005</a> — quantum algorithms for molecular energies (quantum chemistry motivation).</div>
+          <div><a href="https://link.aps.org/doi/10.1103/RevModPhys.86.153" target="_blank" rel="noopener">I. M. Georgescu et al., Rev. Mod. Phys. 2014</a> — comprehensive quantum-simulation review.</div>
+          <div><a href="https://www.nature.com/articles/nphys2252" target="_blank" rel="noopener">R. Blatt & C. F. Roos, Nat. Phys. 2012</a> — trapped-ion quantum simulation review.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
