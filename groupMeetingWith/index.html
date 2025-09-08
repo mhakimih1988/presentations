@@ -12,6 +12,25 @@
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
     .small { font-size: 0.8em; color: #bbb; }
+
+    /* Make all slides use qpic.jpg as background */
+    .reveal .slides section {
+      background-image: url('assets/qpic.jpg');
+      background-size: cover;        /* fill entire slide */
+      background-position: center;   /* center the image */
+      background-repeat: no-repeat;
+      background-attachment: fixed;  /* image stays fixed when transitioning */
+    }
+
+    /* Optional: make text readable with overlay */
+    .reveal .slides section::before {
+      content: "";
+      position: absolute;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.3);  /* dark overlay for text contrast */
+      z-index:0;
+    }
+    .reveal .slides section > * { z-index:1; position: relative; }
   </style>
 </head>
 <body>
@@ -20,18 +39,26 @@
 
       <!-- Slide 1: Motivation -->
       <section>
-        <h1>Motivation</h1>
-        <ul>
-          <li>Classical simulation of quantum many-body systems scales exponentially (Hilbert space ∝ 2ⁿ)</li>
-          <li>Approximations break down for strongly correlated dynamics</li>
-          <li>Quantum computers can efficiently emulate Hamiltonian dynamics</li>
-          <li>Applications: quantum chemistry, materials science, nuclear & high-energy physics</li>
-          <li>Trapped ions provide high-fidelity gates and tunable interactions → ideal platform</li>
-        </ul>
-        <p class="small">
-          References: Feynman 1982, Lloyd 1996, Aspuru-Guzik 2005, Georgescu et al. 2014, Blatt & Roos 2012
-        </p>
+        <div style="display:flex; gap:20px; flex-wrap: wrap;">
+          <!-- Left column: text -->
+          <div style="flex: 1 1 45%;">
+            <h2>Motivation</h2>
+            <ul>
+              <li style="font-size:28px;">Classical simulation of quantum many-body systems scales exponentially (Hilbert space ∝ 2ⁿ)</li>
+              <li>Approximations fail for strongly correlated dynamics</li>
+              <li>Quantum computers emulate Hamiltonian dynamics directly</li>
+              <li>Applications: chemistry, materials science, nuclear & high-energy physics</li>
+            </ul>
+          </div>
+
+          <!-- Right column: image -->
+          <div style="flex: 1 1 45%; text-align:center;">
+            <img src="assets/quantum_sim.png" alt="Quantum Simulation" style="max-width:100%; border-radius:8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+            <p style="font-size:0.8em; color:#ddd; margin-top:6px;">Figure: Conceptual illustration of Hamiltonian simulation</p>
+          </div>
+        </div>
       </section>
+
 
       <!-- Slide 2: Quantum Computing Stack -->
       <section>
